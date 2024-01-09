@@ -11,6 +11,31 @@
 
 <script>
 
+function rockPaperScissors() {
+        const computerChoice = getComputerChoice();
+        const playerChoice = getPlayerChoice();
+
+        if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Rock!") {
+        return "It's a draw.";
+        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Scissors!") {
+            return "It's a draw.";
+        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Paper!") {
+            return "It's a draw.";
+        } else if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Paper!") {
+            return "You win! Paper beats Rock.";
+        } else if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Scissors!") {
+           return "You lose. Rock beats Scissors";
+        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Rock!") {
+            return "You lose. Paper beats Rock";
+        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Scissors!") {
+            return "You win! Scissors beats Paper";
+        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Rock!") {
+            return "You win! Rock beats Scissors";
+        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Paper!") {
+            return "You lose. Scissors beats Paper.";
+        }
+    }
+
     function getComputerChoice() {
         let computerChoice = Math.floor(Math.random() * 3) + 1;
         
@@ -25,7 +50,7 @@
 
     function getPlayerChoice() {
 
-        let playerChoice = 2;
+        let playerChoice = prompt("Rock, Paper or Scissors?")
 
         if (playerChoice === 1) {
             return "You choose: Rock!";
@@ -37,32 +62,7 @@
 
     }
 
-    function rockPaperScissors() {
-        const computerChoice = getComputerChoice();
-        const playerChoice = getPlayerChoice();
-
-        if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Rock!") {
-        return "It's a draw.";
-        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Scissors!") {
-            return "It's a draw.";
-        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Paper!") {
-            return "It's a draw.";
-        } else if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Paper!") {
-            return "You win!";
-        } else if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Scissors!") {
-           return "You lose.";
-        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Rock!") {
-            return "You lose.";
-        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Scissors!") {
-            return "You win!";
-        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Rock!") {
-            return "You win!";
-        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Paper!") {
-            return "You lose.";
-        }
-    }
-    
-        console.log(rockPaperScissors())
+    rockPaperScissors()
     
 </script>
 
