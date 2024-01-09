@@ -15,20 +15,37 @@
         let computerChoice = Math.floor(Math.random() * 3) + 1;
         
         if (computerChoice === 1) {
-            computerChoice = "Rock"
+            return "Computer chooses: Rock!"
         } else if (computerChoice === 2) {
-            computerChoice = "Paper"
+            return "Computer chooses: Paper!"
         } else if (computerChoice === 3) {
-            computerChoice = "Scissors"
+            return "Computer chooses: Scissors!"
         }
-    
-        console.log(computerChoice)
     }
 
-    getComputerChoice()
+    function getPlayerChoice() {
 
+        let playerChoice = 1;
+
+        if (playerChoice === 1) {
+            return "You choose: Rock!";
+        } else if (playerChoice === 2) {
+            return "You choose: Paper!";
+        } else if (playerChoice === 3) {
+            return "You choose: Scissors!";
+        }
+    }
+
+    function rockPaperScissors() {
+        const computerChoice = getComputerChoice();
+        const playerChoice = getPlayerChoice();
+
+        console.log(computerChoice)
+        console.log(playerChoice)
+    }
+
+    rockPaperScissors();
     
-
 </script>
 
 </html>
