@@ -15,24 +15,18 @@ function playRound() {
        const computerChoice = getComputerChoice();
         const playerChoice = getPlayerChoice();
 
-        if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Rock!") {
-        return "It's a draw.";
-        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Scissors!") {
+        if (computerChoice === playerChoice) {
             return "It's a draw.";
-        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Paper!") {
-            return "It's a draw.";
-        } else if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Paper!") {
-            return "You win! Paper beats Rock.";
-        } else if (computerChoice === "Computer chooses: Rock!" && playerChoice === "You choose: Scissors!") {
-           return "You lose. Rock beats Scissors";
-        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Rock!") {
-            return "You lose. Paper beats Rock";
-        } else if (computerChoice === "Computer chooses: Paper!" && playerChoice === "You choose: Scissors!") {
-            return "You win! Scissors beats Paper";
-        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Rock!") {
-            return "You win! Rock beats Scissors";
-        } else if (computerChoice === "Computer chooses: Scissors!" && playerChoice === "You choose: Paper!") {
-            return "You lose. Scissors beats Paper.";
+        } else if (
+            (computerChoice === "Rock" && playerChoice === "Paper") ||
+            (computerChoice === "Paper" && playerChoice === "Scissors") ||
+            (computerChoice === "Scissors" && playerChoice === "Rock")
+        ) {
+            playerScore++;
+            return "You win! $(playerChoice) beats $(computerChoice). Player Score: $(playerScore), Computer Score: $(computerScore)";
+        } else {
+            computerScore++;
+            return "You lose. $(computerChoice) beats $(playerChoice). Player Score: $(playerScore), Computer Score: $(computerScore)";
         }
     }
 
@@ -40,11 +34,11 @@ function playRound() {
         let computerChoice = Math.floor(Math.random() * 3) + 1;
         
         if (computerChoice === 1) {
-            return "Computer chooses: Rock!"
+            return "Rock"
         } else if (computerChoice === 2) {
-            return "Computer chooses: Paper!"
+            return "Paper"
         } else if (computerChoice === 3) {
-            return "Computer chooses: Scissors!"
+            return "Scissors"
         }
     }
 
@@ -53,24 +47,29 @@ function playRound() {
         let playerChoice = prompt("Rock, Paper or Scissors?")
 
         if (playerChoice === "Rock") {
-            return "You choose: Rock!";
+            return "Rock";
         } else if (playerChoice === "Paper") {
-            return "You choose: Paper!";
+            return "Paper";
         } else if (playerChoice === "Scissors") {
-            return "You choose: Scissors!";
+            return "Scissors";
         }
 
     }
 
-    function game() {
-        alert(playRound());
-        alert(playRound());
-        alert(playRound());
-        alert(playRound());
-        alert(playRound());
-    }
+    let playerScore = 0;
+    let computerScore = 0;
 
-    game() 
+    function game() {
+        for (let i = 0; i = < 5; i++) {
+            alert(playRound());
+        }
+
+        if (playerScore > computerScore) {
+            alert("You win the best of 5 game!");
+        } else (playerScore < computerScore) {
+            alert.("You lose the best of 5 game.");
+        }
+    }
     
 </script>
 
