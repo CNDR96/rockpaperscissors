@@ -23,10 +23,10 @@ function playRound() {
             (computerChoice === "Scissors" && playerChoice === "Rock")
         ) {
             playerScore++;
-            return "You win! ${playerChoice} beats ${computerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}";
+            return 'You win! ${playerChoice} beats ${computerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}';
         } else {
             computerScore++;
-            return "You lose. ${computerChoice} beats ${playerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}";
+            return 'You lose. ${computerChoice} beats ${playerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}';
         }
     }
 
