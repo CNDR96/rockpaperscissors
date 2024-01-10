@@ -16,7 +16,7 @@ function playRound() {
         const playerChoice = getPlayerChoice();
 
         if (computerChoice === playerChoice) {
-            return "It's a draw.";
+            return `It's a draw. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
         } else if (
             (computerChoice === "Rock" && playerChoice === "Paper") ||
             (computerChoice === "Paper" && playerChoice === "Scissors") ||
@@ -44,13 +44,14 @@ function playRound() {
 
     function getPlayerChoice() {
 
-        let playerChoice = prompt("Rock, Paper or Scissors?")
+        let playerChoice = prompt("Rock, Paper or Scissors?");
+        playerChoice = playerChoice.toLowerCase();
 
-        if (playerChoice === "Rock") {
+        if (playerChoice === "rock") {
             return "Rock";
-        } else if (playerChoice === "Paper") {
+        } else if (playerChoice === "paper") {
             return "Paper";
-        } else if (playerChoice === "Scissors") {
+        } else if (playerChoice === "scissors") {
             return "Scissors";
         }
 
