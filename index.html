@@ -23,10 +23,10 @@ function playRound() {
             (computerChoice === "Scissors" && playerChoice === "Rock")
         ) {
             playerScore++;
-            return "You win! $(playerChoice) beats $(computerChoice). Player Score: $(playerScore), Computer Score: $(computerScore)";
+            return "You win! ${playerChoice} beats ${computerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}";
         } else {
             computerScore++;
-            return "You lose. $(computerChoice) beats $(playerChoice). Player Score: $(playerScore), Computer Score: $(computerScore)";
+            return "You lose. ${computerChoice} beats ${playerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}";
         }
     }
 
@@ -66,7 +66,7 @@ function playRound() {
 
         if (playerScore > computerScore) {
             alert("You win the best of 5 game!");
-        } else (playerScore < computerScore); {
+        } else if (playerScore < computerScore) {
             alert("You lose the best of 5 game.");
         }
     }
