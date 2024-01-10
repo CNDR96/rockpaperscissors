@@ -53,6 +53,9 @@ function playRound() {
             return "Paper";
         } else if (playerChoice === "scissors") {
             return "Scissors";
+        } else {
+            alert("Invalid choice. Please choose Rock, Paper, or Scissors.");
+            return getPlayerChoice();
         }
 
     }
