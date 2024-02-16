@@ -9,26 +9,30 @@
     <button id="rock"> Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
+    <div class="results3">
+
+    </div>
 </body>
 
 <script>
 
 function playRound() {
-       const computerChoice = getComputerChoice();
+        const computerChoice = getComputerChoice();
         const playerChoice = getPlayerChoice();
+        let resultMessage = '';
 
         if (computerChoice === playerChoice) {
-            return `It's a draw. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
+            resultMessage = `It's a draw. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
         } else if (
             (computerChoice === "Rock" && playerChoice === "Paper") ||
             (computerChoice === "Paper" && playerChoice === "Scissors") ||
             (computerChoice === "Scissors" && playerChoice === "Rock")
         ) {
             playerScore++;
-            return `You win! ${playerChoice} beats ${computerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
+            resultMessage = `You win! ${playerChoice} beats ${computerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
         } else {
             computerScore++;
-            return `You lose. ${computerChoice} beats ${playerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
+            resultMessage = `You lose. ${computerChoice} beats ${playerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
         }
     }
 
