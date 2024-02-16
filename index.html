@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <button id = "rock">Rock</button>
-    <button id = "paper">Paper</button>
-    <button id = "scissors">Scissors</button>
+    <button id="rock"> Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 </body>
 
 <script>
@@ -45,22 +45,44 @@ function playRound() {
     }
 
     function getPlayerChoice() {
-
-        let playerChoice = prompt("Rock, Paper or Scissors?");
-        playerChoice = playerChoice.toLowerCase();
-
-        if (playerChoice === "rock") {
-            return "Rock";
-        } else if (playerChoice === "paper") {
-            return "Paper";
-        } else if (playerChoice === "scissors") {
-            return "Scissors";
-        } else {
-            alert("Invalid choice. Please choose Rock, Paper, or Scissors.");
-            return getPlayerChoice();
-        }
-
+        return playerChoice;
     }
+        
+        const rock = document.querySelector('#rock');
+        const paper = document.querySelector('#paper');
+        const scissors = document.querySelector('#scissors');
+        
+        rock.addEventListener('click', () => {
+            playerChoice = 'Rock';
+            alert(playRound());
+        });
+        paper.addEventListener('click', () => {
+            playerChoice = 'Paper';
+            alert(playRound());
+        });
+        scissors.addEventListener('click', () => {
+            playerChoice = 'Scissors';
+            alert(playRound());
+        });
+
+        let playerChoice = '';
+
+
+        // let playerChoice = prompt("Rock, Paper or Scissors?");
+        // playerChoice = playerChoice.toLowerCase();
+
+        // if (playerChoice === "rock") {
+        //     return "Rock";
+        // } else if (playerChoice === "paper") {
+        //     return "Paper";
+        // } else if (playerChoice === "scissors") {
+        //     return "Scissors";
+        // } else {
+        //     alert("Invalid choice. Please choose Rock, Paper, or Scissors.");
+        //     return getPlayerChoice();
+        // }
+
+
 
     let playerScore = 0;
     let computerScore = 0;
