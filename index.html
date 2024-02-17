@@ -9,16 +9,21 @@
     <button id="rock"> Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
-    <div class="results3">
+    <div class="results">
 
     </div>
 </body>
 
 <script>
 
-function playRound() {
+    function updateResults(message) {
+    let resultsDiv = document.querySelector('.results');
+    resultsDiv.textContent = message;
+    }
+
+    function playRound(playerChoice) {
         const computerChoice = getComputerChoice();
-        const playerChoice = getPlayerChoice();
+        
         let resultMessage = '';
 
         if (computerChoice === playerChoice) {
@@ -34,7 +39,27 @@ function playRound() {
             computerScore++;
             resultMessage = `You lose. ${computerChoice} beats ${playerChoice}. Player Score: ${playerScore}, Computer Score: ${computerScore}`;
         }
+
+        updateResults(resultMessage);
+
+        if (playerScore === 3 || computerScore === 3) {
+                endGame();
+            }
+
     }
+
+    function endGame() {
+        if (playerScore === 3) {
+            updateResults(`You win the best of 5! Player Score: ${playerScore}, Computer Score: ${computerScore}`);
+        } else {
+            updateResults(`You lose the best of 5. Player Score: ${playerScore}, Computer Score: ${computerScore}`);
+        }
+
+        playerScore = 0;
+        computerScore = 0;
+        
+    }
+
 
     function getComputerChoice() {
         let computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -51,69 +76,63 @@ function playRound() {
     function getPlayerChoice() {
         return playerChoice;
     }
-        
+        let playerChoice = '';
         const rock = document.querySelector('#rock');
         const paper = document.querySelector('#paper');
         const scissors = document.querySelector('#scissors');
         
         rock.addEventListener('click', () => {
             playerChoice = 'Rock';
-            alert(playRound());
+            playRound('Rock');
         });
         paper.addEventListener('click', () => {
             playerChoice = 'Paper';
-            alert(playRound());
+            playRound('Paper');
         });
         scissors.addEventListener('click', () => {
             playerChoice = 'Scissors';
-            alert(playRound());
+            playRound('Scissors');
         });
 
-        let playerChoice = '';
-
-
-        // let playerChoice = prompt("Rock, Paper or Scissors?");
-        // playerChoice = playerChoice.toLowerCase();
-
-        // if (playerChoice === "rock") {
-        //     return "Rock";
-        // } else if (playerChoice === "paper") {
-        //     return "Paper";
-        // } else if (playerChoice === "scissors") {
-        //     return "Scissors";
-        // } else {
-        //     alert("Invalid choice. Please choose Rock, Paper, or Scissors.");
-        //     return getPlayerChoice();
-        // }
-
-
-
-    let playerScore = 0;
-    let computerScore = 0;
 
     function game() {
         
         let draws = 0;
         
-        for (let i = 0; i < 5; ) {
-            const result = playRound();
-            alert(result);
-            
-            if (result.includes("It's a draw.")) {
-                draws++;
-            } else {
-                i++;
-            }
-        }
+         playerScore = 0;
+         computerScore = 0;
 
-        if (playerScore > computerScore) {
-            alert("You win the best of 5 game!");
-        } else if (playerScore < computerScore) {
-            alert("You lose the best of 5 game.");
-        }
-    }
+            for (let i = 0; i < 5; ) {
+                playRound(playerChoice);
+                
+                if (resultMessage.includes("It's a draw.")) {
+                    draws++;
+                } else {
+                    i++;
+                }
+
+                if (playerScore === 3 || computerScore === 3) {
+                break;
+                }
+
+            }
+
     
-    game()
+    if (playerScore === 3 || computerScore === 3) {
+        if (playerScore > computerScore) {
+        updateResults("You win the best of 5 game!");
+        } else if (playerScore < computerScore) {
+        updateResults("You lose the best of 5 game.");
+        } else {
+        updateResults("The game is a draw.");
+    }
+}
+
+        
+    }
+
+    
+    game();
 
 </script>
 
